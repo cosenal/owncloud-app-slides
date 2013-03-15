@@ -95,7 +95,7 @@ Yeah, but:
             'id' => 'myapp',
             'order' => 74,
             'href' => \OCP\Util::linkToRoute('myapp_index'),
-            'icon' => \OCP\Util::imagePath('myapp', 'nav-icon.png'),
+            'icon' => \OCP\Util::imagePath('myapp', 'nav-icon.png') // add this by yourself ;),
             'name' => 'My App'
         ));
 
@@ -131,8 +131,9 @@ Yeah, but:
 
         :::php
         <?php
+        // Look up other security checks in the docs!
         \OCP\User::checkLoggedIn();
-        \OCP\App::checkAppEnabled('contacts');
+        \OCP\App::checkAppEnabled('myapp');
 
         $tpl = new OCP\Template("myapp", "main", "user");
         $tpl->assign('msg', 'Hello World');

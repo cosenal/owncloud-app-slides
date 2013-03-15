@@ -179,7 +179,7 @@ URL: https://code.google.com/p/io-2012-slides
     <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myapp&#39;</span><span class="p">,</span>
     <span class="s1">&#39;order&#39;</span> <span class="o">=&gt;</span> <span class="mi">74</span><span class="p">,</span>
     <span class="s1">&#39;href&#39;</span> <span class="o">=&gt;</span> <span class="nx">\OCP\Util</span><span class="o">::</span><span class="na">linkToRoute</span><span class="p">(</span><span class="s1">&#39;myapp_index&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="nx">\OCP\Util</span><span class="o">::</span><span class="na">imagePath</span><span class="p">(</span><span class="s1">&#39;myapp&#39;</span><span class="p">,</span> <span class="s1">&#39;nav-icon.png&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="nx">\OCP\Util</span><span class="o">::</span><span class="na">imagePath</span><span class="p">(</span><span class="s1">&#39;myapp&#39;</span><span class="p">,</span> <span class="s1">&#39;nav-icon.png&#39;</span><span class="p">)</span> <span class="c1">// add this by yourself ;),</span>
     <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My App&#39;</span>
 <span class="p">));</span>
 </pre></div>
@@ -233,8 +233,9 @@ URL: https://code.google.com/p/io-2012-slides
 <li>
 <p>Create the logic in <strong>index.php</strong>:</p>
 <div class="codehilite"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// Look up other security checks in the docs!</span>
 <span class="nx">\OCP\User</span><span class="o">::</span><span class="na">checkLoggedIn</span><span class="p">();</span>
-<span class="nx">\OCP\App</span><span class="o">::</span><span class="na">checkAppEnabled</span><span class="p">(</span><span class="s1">&#39;contacts&#39;</span><span class="p">);</span>
+<span class="nx">\OCP\App</span><span class="o">::</span><span class="na">checkAppEnabled</span><span class="p">(</span><span class="s1">&#39;myapp&#39;</span><span class="p">);</span>
 
 <span class="nv">$tpl</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OCP\Template</span><span class="p">(</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">);</span>
 <span class="nv">$tpl</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
