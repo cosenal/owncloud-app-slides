@@ -29,8 +29,7 @@ Needs:
 
 Yeah, but:
 
-* PHP is crappy - but runs on a ton of platforms
-* Devs will surely deliver - we are fixing bugs
+* Devs will surely deliver
 
 ---
 
