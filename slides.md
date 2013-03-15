@@ -131,14 +131,15 @@ Yeah, but:
 
 ## Where to go from here
 
-* Read the [Documentation](http://doc.owncloud.org/server/master/developer_manual/app/index.html)
+* Read the [documentation](http://doc.owncloud.org/server/master/developer_manual/app/index.html)
+* Check the [security guidelines](http://doc.owncloud.org/server/master/developer_manual/app/general/security.html)
 * Watch [Google's Clean Code Talks](http://www.youtube.com/watch?v=4F72VULWFvc&playnext=1&list=PLBDAB2BA83BB6588E&feature=results_main)
 * Join us on __#owncloud-dev__ in [irc.freenode.net](irc://irc.freenode.net)
-* Subscribe to the [Mailinglist](https://mail.kde.org/mailman/listinfo/owncloud)
+* Subscribe to the [mailinglist](https://mail.kde.org/mailman/listinfo/owncloud)
 
 Slides:
 
-* Built with patched python lib [mcider](https://github.com/ogom/python-mcider) (Google IO)
-
 * Repo on Github: [https://github.com/Raydiation/owncloud-app-slides](https://github.com/Raydiation/owncloud-app-slides)
+
+* Built with patched python lib [mcider](https://github.com/ogom/python-mcider) (Google IO)
 
