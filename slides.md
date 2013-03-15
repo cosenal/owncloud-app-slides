@@ -61,12 +61,31 @@ Yeah, but:
         sudo mkdir -p /var/www/apps/myapp/appinfo
         sudo chown -R user:group /var/www/apps/myapp
 
+* Set metadata in __appinfo/info.xml__
+
+        :::xml
+
+        <?xml version="1.0"?>
+        <info>
+            <id>myapp</id>
+            <name>My App</name>
+            <description>Example app</description>
+            <version>1.0</version>
+            <licence>AGPL</licence>
+            <author>Your Name</author>
+            <require>5</require>
+        </info>
+
+---
+
+## Create the app
+
 * Create navigation entry in __appinfo/app.php__
 
         :::php
-
         <?php
-        \OCP\App::addNavigationEntry( array( 
+
+        \OCP\App::addNavigationEntry(array( 
             'id' => 'myapp',
             'order' => 74,
             'href' => \OCP\Util::linkToRoute('myapp_index'),
@@ -76,13 +95,31 @@ Yeah, but:
 
 ---
 
-## Create basic files
+## Create the app        
+
+* Create the initial route in __appinfo/routes.php__
+
+        :::php
+        <?php
+
+        $this->create('myapp_index', '/')->action(
+            function($params){
+                require __DIR__ . '/../index.php';
+            }
+        );
+
+
+---
+
+## Enable the app
+
 
 
 * Link the app into the __owncloud/apps/__ folder:
 
-
         sudo ln -s /var/www/apps/myapp /var/www/owncloud/apps/
+
+
 
 ---
 
