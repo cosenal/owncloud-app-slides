@@ -2,7 +2,7 @@ var SLIDE_CONFIG = {
   // Slide settings
   settings: {
     title: 'ownCloud 5.0 Release Party<br>',
-    subtitle: 'How to write ownCloud apps',
+    subtitle: 'How to write your ownCloud app',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
