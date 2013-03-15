@@ -188,6 +188,18 @@ Yeah, but:
 
         sudo ln -s /var/www/apps/myapp /var/www/owncloud/apps/
 
+* Enable it on the apps page:
+
+![App page screenshot](images/appspage.png)
+
+---
+
+## Enjoy the result
+
+* Congratulations! You've written your first app!
+
+![App page done](images/result.png)
+
 
 
 ---
