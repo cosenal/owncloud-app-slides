@@ -101,19 +101,81 @@ Yeah, but:
 
 ---
 
-## Create the app - Route       
+## Create the app - Route
 
 * Create the initial route in __appinfo/routes.php__:
 
         :::php
         <?php
+        $this->create('myapp_index', '/')->action(
+            function($params){ require __DIR__ . '/../index.php'; }
+        );
 
+* Using App Framework (Look up the [DIContainer](http://doc.owncloud.org/server/master/developer_manual/app/appframework/container.html) class):
+        
+        :::php
+        <?php
+        use \OCA\AppFramework\App;
+        use \OCA\MyApp\DependencyInjection\DIContainer;
         $this->create('myapp_index', '/')->action(
             function($params){
-                require __DIR__ . '/../index.php';
+                App::main('PageController', 'methodName', $params, new DIContainer());
             }
         );
 
+---
+
+## Create the app - Logic
+
+* Create the logic in __index.php__:
+
+        :::php
+        <?php
+        \OCP\User::checkLoggedIn();
+        \OCP\App::checkAppEnabled('contacts');
+
+        $tpl = new OCP\Template("myapp", "main", "user");
+        $tpl->assign('msg', 'Hello World');
+        $tpl->printPage();
+
+---
+
+## Create the app - Logic
+
+* Using the App Framework:
+
+        :::php
+        <?php
+        class PageController extends \OCA\AppFramework\Controller\Controller {
+
+            public function __construct($api, $request){
+                parent::__construct($api, $request);
+            }
+
+            /**
+             * @CSRFExemption
+             * @IsAdminExemption
+             * @IsSubAdminExemption
+             */
+            public function index(){
+                return $this->render('main', array(
+                    'msg' => 'Hello World'
+                ));
+            }
+        }
+---
+
+## Create the app - Template
+
+* Create the template in __templates/main.php:
+        
+        :::php
+        <p><?php p($_['msg']); ?></p>
+
+* Using the App Framework
+
+        :::php
+        <p>{{ msg }}</p>
 
 ---
 

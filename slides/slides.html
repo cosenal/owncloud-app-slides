@@ -199,12 +199,104 @@ URL: https://code.google.com/p/io-2012-slides
 <li>
 <p>Create the initial route in <strong>appinfo/routes.php</strong>:</p>
 <div class="codehilite"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;myapp_index&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">action</span><span class="p">(</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$params</span><span class="p">){</span> <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../index.php&#39;</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
 
+
+</li>
+<li>
+<p>Using App Framework (Look up the <a href="http://doc.owncloud.org/server/master/developer_manual/app/appframework/container.html">DIContainer</a> class):</p>
+<div class="codehilite"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">\OCA\AppFramework\App</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\OCA\MyApp\DependencyInjection\DIContainer</span><span class="p">;</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;myapp_index&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">action</span><span class="p">(</span>
     <span class="k">function</span><span class="p">(</span><span class="nv">$params</span><span class="p">){</span>
-        <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../index.php&#39;</span><span class="p">;</span>
+        <span class="nx">App</span><span class="o">::</span><span class="na">main</span><span class="p">(</span><span class="s1">&#39;PageController&#39;</span><span class="p">,</span> <span class="s1">&#39;methodName&#39;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">,</span> <span class="k">new</span> <span class="nx">DIContainer</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">);</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Create the app - Logic</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Create the logic in <strong>index.php</strong>:</p>
+<div class="codehilite"><pre><span class="cp">&lt;?php</span>
+<span class="nx">\OCP\User</span><span class="o">::</span><span class="na">checkLoggedIn</span><span class="p">();</span>
+<span class="nx">\OCP\App</span><span class="o">::</span><span class="na">checkAppEnabled</span><span class="p">(</span><span class="s1">&#39;contacts&#39;</span><span class="p">);</span>
+
+<span class="nv">$tpl</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OCP\Template</span><span class="p">(</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">);</span>
+<span class="nv">$tpl</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+<span class="nv">$tpl</span><span class="o">-&gt;</span><span class="na">printPage</span><span class="p">();</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Create the app - Logic</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Using the App Framework:</p>
+<div class="codehilite"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">PageController</span> <span class="k">extends</span> <span class="nx">\OCA\AppFramework\Controller\Controller</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$api</span><span class="p">,</span> <span class="nv">$request</span><span class="p">){</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$api</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @CSRFExemption</span>
+<span class="sd">     * @IsAdminExemption</span>
+<span class="sd">     * @IsSubAdminExemption</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;msg&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello World&#39;</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Create the app - Template</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Create the template in __templates/main.php:</p>
+<div class="codehilite"><pre><span class="x">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="nx">p</span><span class="p">(</span><span class="nv">$_</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]);</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Using the App Framework</p>
+<div class="codehilite"><pre><span class="x">&lt;p&gt;{{ msg }}&lt;/p&gt;</span>
 </pre></div>
 
 
