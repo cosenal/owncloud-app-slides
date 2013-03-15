@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'ownCloud 5.0 Release Party',
+    title: 'ownCloud 5.0 Release Party<br>',
     subtitle: 'How to write ownCloud apps',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
@@ -12,7 +12,7 @@ var SLIDE_CONFIG = {
     fonts: [
       'Open Sans:regular,semibold,italic,italicsemibold',
       'Inconsolata'
-    ],
+    ]
     //theme: ['mytheme'], // Add your own custom themes or styles in /theme/css. Leave off the .css extension.
   },
 
@@ -20,6 +20,9 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Bernhard Posselt',
     company: 'ownCloud Inc.',
+    gplus: '',
+    twitter: '',
+    www: '',
     github: 'http://github.com/Raydiation'
   }/*, {
     name: 'Second Name',

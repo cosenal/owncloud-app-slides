@@ -3,7 +3,7 @@ How to compile
 
 Install mcider (python2 package)::
 
-    pip2 intall mcider
+    https://github.com/Raydiation/python-mcider
 
 Run make::
 
