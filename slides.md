@@ -94,7 +94,7 @@ Yeah, but:
             'id' => 'myapp',
             'order' => 74,
             'href' => \OCP\Util::linkToRoute('myapp_index'),
-            'icon' => \OCP\Util::imagePath('myapp', 'nav-icon.png') // add this by yourself ;),
+            'icon' => \OCP\Util::imagePath('myapp', 'nav-icon.png'), // add this by yourself ;)
             'name' => 'My App'
         ));
 
