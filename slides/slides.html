@@ -1,0 +1,267 @@
+<!--
+ownCloud presentation template 
+
+Authors: Bernhard Possekt <nukeawhale@gmail.com>
+
+based on:
+
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Presentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/owncloud-logo-square.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/owncloud-logo.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  
+<slide>
+<hgroup>
+<h2>About me</h2>
+</hgroup>
+<article class="none">
+<p>Bernhard Posselt (Raydiation)</p>
+<ul>
+<li>Python &amp; Django fan</li>
+</ul>
+<p>Working on:</p>
+<ul>
+<li>App Framework app</li>
+<li>News (RSS) app</li>
+<li>Documentation</li>
+<li>Testing</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Why</h2>
+</hgroup>
+<article class="none">
+<p>Fun:</p>
+<ul>
+<li>Awesome community</li>
+<li>No one-man show</li>
+</ul>
+<p>Needs:</p>
+<ul>
+<li>You want to keep your data</li>
+<li>You want a high quality platform</li>
+<li>You want a special feature</li>
+</ul>
+<p>Yeah, but:</p>
+<ul>
+<li>PHP is crappy - but runs on a ton of platforms</li>
+<li>Devs will surely deliver - we are fixing bugs</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Don't be the bear</h2>
+</hgroup>
+<article class="none">
+<p><img alt="op will surely deliver" src="http://cdn.overclock.net/b/b4/b43ddc98_Op_will_surely_deliver_Weird_Video_Game_Facts_Part_7-s500x375-138152-535.jpeg" /></p>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Get the source, Luke!</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p><a href="http://doc.owncloud.org/server/5.0/admin_manual/installation.html#prerequisites">Set up your developement environment</a></p>
+</li>
+<li>
+<p>Clone the code from <a href="https://github.com/owncloud">GitHub</a>:</p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="n">o</span><span class="o">+</span><span class="n">rw</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/owncloud/core.git owncloud</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/owncloud/apps.git apps</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/owncloud/3rdparty.git 3rdparty</span>
+
+<span class="n">mkdir</span> <span class="n">owncloud</span><span class="o">/</span><span class="n">data</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="o">:</span><span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="n">owncloud</span><span class="o">/</span><span class="n">config</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="o">:</span><span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="n">owncloud</span><span class="o">/</span><span class="n">data</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="o">:</span><span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="n">owncloud</span><span class="o">/</span><span class="n">apps</span>
+<span class="n">sudo</span> <span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">o</span><span class="o">-</span><span class="n">rw</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Create the app - Metadata</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Create folder in lower case:</p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">myapp</span><span class="o">/</span><span class="n">appinfo</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">user</span><span class="o">:</span><span class="n">group</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">myapp</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Set metadata in <strong>appinfo/info.xml</strong>:</p>
+<div class="codehilite"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;info&gt;</span>
+    <span class="nt">&lt;id&gt;</span>myapp<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>My App<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Example app<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;licence&gt;</span>AGPL<span class="nt">&lt;/licence&gt;</span>
+    <span class="nt">&lt;author&gt;</span>Your Name<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;require&gt;</span>5<span class="nt">&lt;/require&gt;</span>
+<span class="nt">&lt;/info&gt;</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Create the app - Navigation entry</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Create navigation entry in <strong>appinfo/app.php</strong>:</p>
+<div class="codehilite"><pre><span class="cp">&lt;?php</span>
+
+<span class="nx">\OCP\App</span><span class="o">::</span><span class="na">addNavigationEntry</span><span class="p">(</span><span class="k">array</span><span class="p">(</span> 
+    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;myapp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;order&#39;</span> <span class="o">=&gt;</span> <span class="mi">74</span><span class="p">,</span>
+    <span class="s1">&#39;href&#39;</span> <span class="o">=&gt;</span> <span class="nx">\OCP\Util</span><span class="o">::</span><span class="na">linkToRoute</span><span class="p">(</span><span class="s1">&#39;myapp_index&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="nx">\OCP\Util</span><span class="o">::</span><span class="na">imagePath</span><span class="p">(</span><span class="s1">&#39;myapp&#39;</span><span class="p">,</span> <span class="s1">&#39;nav-icon.png&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My App&#39;</span>
+<span class="p">));</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Create the app - Route</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Create the initial route in <strong>appinfo/routes.php</strong>:</p>
+<div class="codehilite"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;myapp_index&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">action</span><span class="p">(</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$params</span><span class="p">){</span>
+        <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../index.php&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Enable the app</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>
+<p>Link the app into the <strong>owncloud/apps/</strong> folder:</p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">myapp</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">owncloud</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span>
+</pre></div>
+
+
+</li>
+</ul>
+</article>
+</slide>
+
+<slide>
+<hgroup>
+<h2>Where to go from here</h2>
+</hgroup>
+<article class="none">
+<ul>
+<li>Read the <a href="http://doc.owncloud.org/server/master/developer_manual/app/index.html">Documentation</a></li>
+<li>Watch <a href="http://www.youtube.com/watch?v=4F72VULWFvc&amp;playnext=1&amp;list=PLBDAB2BA83BB6588E&amp;feature=results_main">Google's Clean Code Talks</a></li>
+<li>Join us on <strong>#owncloud-dev</strong> in <a href="irc://irc.freenode.net">irc.freenode.net</a></li>
+<li>Subscribe to the <a href="https://mail.kde.org/mailman/listinfo/owncloud">Mailinglist</a></li>
+</ul>
+<p>Slides:</p>
+<ul>
+<li>
+<p>Built with patched python lib <a href="https://github.com/ogom/python-mcider">mcider</a> (Google IO)</p>
+</li>
+<li>
+<p>Repo on Github: <a href="https://github.com/Raydiation/owncloud-app-slides">https://github.com/Raydiation/owncloud-app-slides</a></p>
+</li>
+</ul>
+</article>
+</slide>
+
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>

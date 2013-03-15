@@ -34,11 +34,17 @@ Yeah, but:
 
 ---
 
+## Don't be the bear
+
+![op will surely deliver](http://cdn.overclock.net/b/b4/b43ddc98_Op_will_surely_deliver_Weird_Video_Game_Facts_Part_7-s500x375-138152-535.jpeg)
+
+---
+
 ## Get the source, Luke!
 
 * [Set up your developement environment](http://doc.owncloud.org/server/5.0/admin_manual/installation.html#prerequisites)
 
-* Clone the code from [GitHub](https://github.com/owncloud)
+* Clone the code from [GitHub](https://github.com/owncloud):
 
         sudo chmod o+rw /var/www
         cd /var/www
@@ -54,14 +60,14 @@ Yeah, but:
 
 ---
 
-## Create the app
+## Create the app - Metadata
 
-* Create folder in lower case!
+* Create folder in lower case:
 
         sudo mkdir -p /var/www/apps/myapp/appinfo
         sudo chown -R user:group /var/www/apps/myapp
 
-* Set metadata in __appinfo/info.xml__
+* Set metadata in __appinfo/info.xml__:
 
         :::xml
 
@@ -78,9 +84,9 @@ Yeah, but:
 
 ---
 
-## Create the app
+## Create the app - Navigation entry
 
-* Create navigation entry in __appinfo/app.php__
+* Create navigation entry in __appinfo/app.php__:
 
         :::php
         <?php
@@ -95,9 +101,9 @@ Yeah, but:
 
 ---
 
-## Create the app        
+## Create the app - Route       
 
-* Create the initial route in __appinfo/routes.php__
+* Create the initial route in __appinfo/routes.php__:
 
         :::php
         <?php
