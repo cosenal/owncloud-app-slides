@@ -9,4 +9,4 @@ Run make::
 
     make
 
-Slide is in the **build/** directory
+Slide is in the **slides/** directory
